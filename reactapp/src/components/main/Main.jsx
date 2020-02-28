@@ -12,7 +12,7 @@ import postai from "../data/postai";
         )
     }*/
 
-    class Main extends Component{
+    /*class Main extends Component{
         constructor(){
             super()
             this.state = {
@@ -39,6 +39,47 @@ import postai from "../data/postai";
                     </ul>
                 </main>
             )
+        }
+    }*/
+
+    class Main extends Component{
+        constructor(){
+            super()
+            this.state = {
+                email:'',
+                name:''
+            }
+
+            this.handleChangeEmail = this.handleChangeEmail.bind(this);
+            this.handleChangeName = this.handleChangeName.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
+
+        handleChangeEmail(event){
+            this.setState({email: event.target.value});
+
+        }
+
+        handleChangeName(event){
+            this.setState({name: event.target.value});
+
+        }
+
+        handleSubmit(event) {
+            alert('LOL' + this.state.email + this.state.name);
+            event.preventDefault();
+        }
+
+        render() {
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        <input type="text" value={this.state.email} onChange={this.handleChangeEmail} placeholder="email"/>
+                        <input type="text" value={this.state.name} onChange={this.handleChangeName} placeholder="name"/>
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            );
         }
     }
 
